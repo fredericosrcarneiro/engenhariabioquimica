@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engenharia Bioquímica na USP Lorena: grade e formas de ingresso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6f8; --surface:#fff; --ink:#14202b; --muted:#566574; --line:#d6dde4; --accent:#0b6b73;
+  --c-bas:#3b6fb6; --c-quim:#b7791f; --c-bio:#2f8f6b; --c-opt:#7a6a8f;
+  --t-bas:#e6eefa; --t-quim:#fbf0dc; --t-bio:#e3f3ec; --t-opt:#eee9f4; --warn:#fbf0dc;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10171d; --surface:#18222b; --ink:#e7edf2; --muted:#9db0bf; --line:#2c3a46; --accent:#58c1c9;
+  --c-bas:#7aa6e8; --c-quim:#e0a947; --c-bio:#5cc59a; --c-opt:#b3a2cc;
+  --t-bas:#1b2a40; --t-quim:#3a2d14; --t-bio:#173128; --t-opt:#2a2336; --warn:#3a2d14; color-scheme:dark;}}
+*{box-sizing:border-box} html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-text-size-adjust:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 16px 56px;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(28px,5vw,42px);font-weight:700} h2{font-size:24px} h3{font-size:19px}
+p{margin:0} a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+header{display:flex;flex-direction:column;gap:10px}
+.eyebrow{font:500 13px/1 var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.lede{color:var(--muted);max-width:72ch}
+.caveat{background:var(--warn);border-radius:8px;padding:12px 14px;font-size:14.5px;max-width:92ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.fact b{font:700 26px/1.1 var(--display);font-variant-numeric:tabular-nums} .fact span{color:var(--muted);font-size:14px}
+section.blk{display:flex;flex-direction:column;gap:14px}
+.exgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.ex .k{font:600 12.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.ex p,.ex li{font-size:15.5px} .ex ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.refs{font-size:13.5px;color:var(--muted)} .refs a{margin-right:10px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font:600 12.5px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--bg)}
+td small{display:block;color:var(--muted)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+summary{cursor:pointer;font-weight:600} details[open] summary{margin-bottom:10px}
+details ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:15px}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.legend button{font:500 14px/1.2 var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.legend button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.dot{width:12px;height:12px;border-radius:3px;display:inline-block} .hint{color:var(--muted);font-size:14px}
+.sem{display:grid;grid-template-columns:96px 1fr;gap:12px 16px;padding:16px 0;border-top:1px solid var(--line)}
+.sem-head{display:flex;flex-direction:column;gap:2px} .sem-head .n{font:700 34px/1 var(--display)} .sem-head .m{font:400 13px/1.35 var(--mono);color:var(--muted)}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.chip{text-align:left;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-left-width:6px;border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-height:74px}
+.chip .nm{font-weight:600;font-size:15px;line-height:1.25} .chip .mt{font:400 12.5px/1.2 var(--mono);color:var(--muted)}
+.chip[data-cat=bas]{border-left-color:var(--c-bas)} .chip[data-cat=quim]{border-left-color:var(--c-quim)} .chip[data-cat=bio]{border-left-color:var(--c-bio)}
+.chip[data-cat=bas]:hover,.chip[data-cat=bas][aria-expanded=true]{background:var(--t-bas)}
+.chip[data-cat=quim]:hover,.chip[data-cat=quim][aria-expanded=true]{background:var(--t-quim)}
+.chip[data-cat=bio]:hover,.chip[data-cat=bio][aria-expanded=true]{background:var(--t-bio)}
+.chip[data-opt="1"]{border-style:dashed;border-left-style:solid}
+.chip[aria-expanded=true]{border-color:var(--ink);border-left-width:6px} .chip.dim{opacity:.3}
+.chip .ok{font:500 11.5px/1 var(--mono);color:var(--accent)}
+.detail{grid-column:2;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.detail[hidden]{display:none} .detail-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.close{font:500 14px/1 var(--body);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:8px;padding:8px 12px;cursor:pointer;flex:none}
+.tags{display:flex;flex-wrap:wrap;gap:8px} .tag{font:500 12.5px/1 var(--mono);padding:6px 9px;border-radius:6px;background:var(--bg);border:1px solid var(--line)}
+.block{display:flex;flex-direction:column;gap:6px} .block h4{margin:0;font:600 13px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.ementa{max-width:72ch;font-size:16.5px;white-space:pre-line} .src{font-size:13px;color:var(--muted)} .none{color:var(--muted);font-size:15px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links button{font:500 14px/1.2 var(--body);color:var(--accent);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 12px;cursor:pointer}
+footer{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--muted);max-width:92ch}
+@media (max-width:640px){.sem{grid-template-columns:1fr}.sem-head{flex-direction:row;align-items:baseline;gap:12px}.detail{grid-column:1}.chips{grid-template-columns:1fr}.detail-top{flex-direction:column}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Painel do curso · grade interativa e ingresso</span>
+  <h1>Engenharia Bioquímica na USP (Escola de Engenharia de Lorena)</h1>
+  <p class="lede">Bacharelado integral em Lorena (SP), 10 semestres. A grade abaixo vem da página oficial do Júpiter (USP), na versão marcada como “curso reformulado”, com início em 01/01/2027. Clique numa disciplina para ver carga horária, pré-requisitos e, quando já transcrita, a ementa.</p>
+  <p class="caveat"><b>Estado deste painel (consulta em 22/11/2026).</b> A grade, os créditos e os pré-requisitos estão completos (73 disciplinas, conferidos por soma contra os subtotais do Júpiter). A ementa literal foi transcrita para <b id="n-em">12</b> de 73 disciplinas, as marcadas com “ementa” no cartão. Nas demais, o detalhe traz o link da página oficial da disciplina no Júpiter. Ementas não foram resumidas nem reescritas.</p>
+</header>
+
+<section class="facts" aria-label="Dados gerais do curso">
+  <div class="fact"><b>10</b><span>semestres na grade do Júpiter (1º ao 10º)</span></div>
+  <div class="fact"><b>3.615 h</b><span>em disciplinas obrigatórias (soma da grade do Júpiter)</span></div>
+  <div class="fact"><b>4.091 h</b><span>total geral exigido (inclui AAC e extensão), Júpiter</span></div>
+  <div class="fact"><b>28</b><span>vagas do curso na Fuvest 2026 (Guia de Carreiras)</span></div>
+</section>
+
+<section class="blk" aria-labelledby="h-ing">
+  <h2 id="h-ing">Como se chega ao curso: três caminhos diferentes</h2>
+  <p class="lede">A USP não usa o SiSU desde 2022. O ingresso é direto no curso, por três processos independentes, e o estudante pode tentar mais de um. Fontes e datas de consulta estão em cada cartão (consultas em 22/11/2026).</p>
+  <div class="exgrid">
+
+    <article class="ex">
+      <div class="k">Caminho 1 · prova própria da USP</div>
+      <h3>Vestibular Fuvest</h3>
+      <ul>
+        <li><b>O que é:</b> prova de 1ª fase (múltipla escolha) e 2ª fase (discursiva e redação). Na edição 2027 a 1ª fase passou de 90 para 80 questões (Blog do Vestibular, 18/05/2026).</li>
+        <li><b>Vagas na USP em 2027:</b> 8.147 pela Fuvest (Blog do Vestibular, 06/07/2026).</li>
+        <li><b>Engenharia Bioquímica, edição 2026:</b> código de curso 02, carreira 201, integral, 10 semestres; 28 vagas: 17 ampla concorrência (AC), 7 escola pública (EP) e 4 PPI. A 2ª fase do curso está marcada B-M-Q (Biologia, Matemática, Química). Fonte: Guia de Carreiras Fuvest 2026. Não achei o quadro de vagas por curso da edição 2027.</li>
+        <li><b>Edição 2027 (para entrar em 2027):</b> inscrições de 17/08 a 09/10/2026, 1ª fase em 1º/11, resultado da 1ª fase em 23/11 e 2ª fase em 6 e 7/12/2026 (Estratégia, com base no edital). Um comunicado anterior da Fuvest dava 15/11 e 13 e 14/12; o calendário foi atualizado depois. Confirme no site da Fuvest.</li>
+      </ul>
+      <p class="refs"><a href="https://www.fuvest.br/wp-content/uploads/fuvest2026_guia-carreiras.pdf">Guia de Carreiras 2026</a><a href="https://portal.estrategia.com/vestibular-e-enem/fuvest/vestibular-fuvest-2027-edital-publicado-veja-detalhes/">Calendário 2027 (Estratégia)</a><a href="https://www.blogdovestibular.com/vestibular/vestibular-fuvest-2027-usp-aprova-11-147-vagas-veja-divisao-por-ingresso.html">Vagas 2027 (Blog do Vestibular, 06/07/2026)</a><a href="https://www.blogdovestibular.com/vestibular/datas-do-vestibular-fuvest-2027-inscricoes-provas-e-obras-obrigatorias.html">1ª fase com 80 questões</a></p>
+    </article>
+
+    <article class="ex">
+      <div class="k">Caminho 2 · nota do Enem</div>
+      <h3>Enem-USP</h3>
+      <ul>
+        <li><b>O que é:</b> processo seletivo da USP, organizado pela Fuvest, que usa só a nota do Enem. Tem inscrição própria e não usa o cadastro do SiSU.</li>
+        <li><b>Vagas:</b> 1.500 na USP em 2027 (Blog do Vestibular, 26/10/2026). Não achei a divisão por curso.</li>
+        <li><b>Inscrição 2027:</b> prevista “a partir de novembro de 2026”, sem datas confirmadas em fonte oficial na minha busca. Quem se inscreve na Fuvest 2027 e também no Enem-USP 2027 concorre aos mesmos cursos e na mesma ordem de prioridade (resolução da Fuvest 2027).</li>
+        <li><b>Pesos da edição 2026</b> para este curso estão no botão “Pesos do Enem-USP” abaixo.</li>
+      </ul>
+      <p class="refs"><a href="https://www.blogdovestibular.com/?p=335433">Enem-USP 2027 (Blog do Vestibular)</a><a href="https://www.fuvest.br/wp-content/uploads/fuvest2027-resolucao-DOE.pdf">Resolução Fuvest 2027</a></p>
+    </article>
+
+    <article class="ex">
+      <div class="k">Caminho 3 · rede pública de São Paulo</div>
+      <h3>Provão Paulista Seriado</h3>
+      <ul>
+        <li><b>O que é:</b> avaliação da rede pública paulista, feita pela Vunesp, que acompanha o estudante na 1ª, 2ª e 3ª séries do ensino médio e dá acesso a USP, Unesp, Unicamp, Univesp e Fatecs.</li>
+        <li><b>Vagas:</b> a edição 2026 (para ingresso em 2027) oferece 1.500 vagas na USP (Aprova Total, agregador). Não achei quantas são de Engenharia Bioquímica.</li>
+        <li><b>Calendário 2026:</b> a prova da 3ª série foi em 4 e 5/11/2026 e a escolha de cursos vai até 27/11/2026 (Aprova Total, site agregador). Para quem está na 3ª série e não fez a prova, esta edição já passou.</li>
+        <li><b>Quem pode:</b> as regras (rede estadual, escolas vinculadas, EJA, grupos A e B) estão no edital da Vunesp, que não li. Verifique se a escola do estudante participa.</li>
+      </ul>
+      <p class="refs"><a href="https://aprovatotal.com.br/provao-paulista-usp/">Provão Paulista 2026 (Aprova Total)</a></p>
+    </article>
+  </div>
+  <p class="caveat">Há ainda vagas por olimpíadas, ingresso de portadores de diploma e transferência, com editais próprios. Não detalhei essas portas.</p>
+
+  <h3>Notas de corte da Fuvest</h3>
+  <p class="caveat"><b>Não verificado.</b> A Fuvest publica PDFs de notas de corte por carreira (o curso está na carreira 201, junto com outros cursos de ciências agrárias), mas não consegui reabrir e conferir os valores neste momento, então esta versão não traz números. Nota de corte da Fuvest é a pontuação do último convocado para a 2ª fase, não da aprovação final, e a 1ª fase de 2027 teve 80 questões em vez de 90, o que impede comparar pontos entre edições. Abra os PDFs oficiais: <a href="https://fearp.usp.br/images/grd/fuvest_2025_notas_de_corte.pdf">Fuvest 2025</a> · <a href="https://www.fearp.usp.br/images/grd/fuvest_2026_notas_de_corte.pdf">Fuvest 2026</a> · <a href="https://www.fuvest.br/wp-content/uploads/fuvest2027-notas-de-corte.pdf">Fuvest 2027</a>.</p>
+
+  <details>
+    <summary>Pesos do Enem-USP (edição 2026)</summary>
+    <div class="tw"><table style="min-width:520px">
+      <thead><tr><th>Área do Enem</th><th>Peso</th><th>Parte da média (cálculo meu)</th><th>Nota mínima</th></tr></thead>
+      <tbody>
+        <tr><td>Linguagens</td><td>1</td><td>16,7%</td><td>350</td></tr>
+        <tr><td>Ciências Humanas</td><td>1</td><td>16,7%</td><td>350</td></tr>
+        <tr><td>Ciências da Natureza</td><td>1</td><td>16,7%</td><td>350</td></tr>
+        <tr><td>Matemática</td><td>2</td><td>33,3%</td><td>450</td></tr>
+        <tr><td>Redação</td><td>1</td><td>16,7%</td><td>350</td></tr>
+      </tbody></table></div>
+    <p style="margin-top:10px"><b>Não confirmado em documento oficial.</b> Os valores vêm de uma matéria do Quero Bolsa de 16/01/2026, que cita a Resolução CoG nº 8871/2025 (Anexo II) e traz também uma “média mínima no Enem” de 0,01. Não abri o anexo da USP. Os pesos de edições anteriores e os da edição 2027 não foram verificados. O percentual é o peso dividido pela soma dos pesos (6). <a href="https://querobolsa.com.br/revista/pesos-enem-usp-2026-veja-como-funciona-a-pontuacao-por-curso">Fonte</a>.</p>
+  </details>
+
+  <details>
+    <summary>O que não foi verificado sobre o ingresso</summary>
+    <ul>
+      <li><b>Nota de corte do Enem-USP para o curso:</b> não localizada.</li>
+      <li><b>Notas de corte da Fuvest:</b> ver aviso acima.</li>
+      <li><b>Regras do Provão Paulista</b> (quem pode participar), quais edições do Enem valem no Enem-USP 2027, pesos 2027 e vagas por curso em 2027 também não foram confirmados.</li>
+      <li><b>Divisão das vagas</b> do curso entre Fuvest, Enem-USP e Provão Paulista: só achei o número da Fuvest 2026 (28).</li>
+    </ul>
+  </details>
+
+  <h3>Para orientar o estudante</h3>
+  <div class="exgrid">
+    <article class="ex"><div class="k">Qual coluna olhar</div><p>Na Fuvest 2026 o curso teve 17 vagas de ampla concorrência, 7 de escola pública e 4 PPI (Guia de Carreiras). Veja qual grupo se aplica ao estudante e compare com as notas de corte dos PDFs oficiais.</p></article>
+    <article class="ex"><div class="k">Três portas, três preparos</div><p>A Fuvest cobra prova própria com 2ª fase; o Enem-USP usa só o Enem; o Provão Paulista é seriado e depende da escola. O mesmo estudante pode tentar Fuvest e Enem-USP; o Provão depende de a escola participar.</p></article>
+    <article class="ex"><div class="k">Onde reforçar</div><p>A 2ª fase do curso na Fuvest 2026 foi B-M-Q (Biologia, Matemática, Química). No Enem-USP 2026, Matemática tem peso 2 e as demais áreas peso 1 (fonte não oficial). No 1º semestre da grade aparecem Fundamentos de Matemática, Fundamentos de Química para Engenharia I-B e Biologia Celular.</p></article>
+    <article class="ex"><div class="k">Calendário</div><p>Fuvest 2027: 2ª fase em 6 e 7/12/2026. Enem-USP 2027: inscrição prevista a partir de novembro, datas não confirmadas por mim. Provão Paulista 2026: escolha de cursos até 27/11. Consulte <a href="https://www.fuvest.br/graduacao/">fuvest.br</a> antes de decidir.</p></article>
+    <article class="ex"><div class="k">Regras do ano</div><p>As regras da edição 2027 (1ª fase com 80 questões; mesmos cursos e mesma ordem de opção entre Fuvest e Enem-USP) vêm de sites de cursinho e da resolução da Fuvest 2027. Confira o edital antes de se inscrever.</p></article>
+    <article class="ex"><div class="k">Como ler uma nota de corte</div><p>É o resultado de uma edição passada e não prevê a próxima. Use como ordem de grandeza.</p></article>
+  </div>
+</section>
+
+<section class="blk" aria-labelledby="h-grade">
+  <h2 id="h-grade">Grade por semestre</h2>
+  <div class="legend" role="group" aria-label="Filtrar por departamento">
+    <button type="button" data-f="bas" aria-pressed="false"><span class="dot" style="background:var(--c-bas)"></span>Ciências básicas (LOB e LOM)</button>
+    <button type="button" data-f="quim" aria-pressed="false"><span class="dot" style="background:var(--c-quim)"></span>Engenharia Química (LOQ)</button>
+    <button type="button" data-f="bio" aria-pressed="false"><span class="dot" style="background:var(--c-bio)"></span>Biotecnologia (LOT)</button>
+  </div>
+  <p class="hint">A cor segue o prefixo do código da disciplina no Júpiter, que indica o departamento. Borda tracejada marca optativa livre. Os botões destacam um grupo; use o mesmo botão de novo para voltar a ver todas.</p>
+  <div id="grade"></div>
+</section>
+
+<section class="blk" aria-labelledby="h-atua">
+  <h2 id="h-atua">O que o curso forma e onde a pessoa pode atuar</h2>
+  <p class="lede">Segundo o PPC (seção 2.2.4), o Engenheiro Bioquímico é um profissional generalista, com base em ciências exatas e biológicas, que projeta soluções para processos industriais e produtos que usam matéria-prima de origem biológica ou agentes como células vivas e enzimas. O PPC cita três grandes áreas de atuação:</p>
+  <div class="exgrid">
+    <article class="ex"><div class="k">Área 1 · PPC</div><h3>Produtos para saúde, alimentos e bebidas</h3><p>Produção de biofármacos, bebidas, alimentos, rações, produtos para diagnóstico e outros bioprodutos para o cuidado da saúde humana e animal.</p></article>
+    <article class="ex"><div class="k">Área 2 · PPC</div><h3>Agroindústria e bioenergia</h3><p>Insumos e produtos de base biológica para setores como o sucroalcooleiro, papel e celulose, bioenergia e biocombustíveis.</p></article>
+    <article class="ex"><div class="k">Área 3 · PPC</div><h3>Resíduos</h3><p>Tratamento biológico de resíduos de atividades industriais e municipais.</p></article>
+  </div>
+  <p class="lede">O PPC lista ainda as funções para as quais o curso quer preparar: organização empresarial, administração financeira, empreendedorismo, gerenciamento de pessoal, monitoramento, controle e aprimoramento de processos, pesquisa e desenvolvimento de bioprocessos, gerenciamento da implantação de bioprocessos e certificação de produtos e processos. Sobre estágio, o PPC diz que grande parte dos alunos que estagiam foram admitidos por empresas de São Paulo, Suzano, São José dos Campos, Taubaté, Guaratinguetá e Cruzeiro (seção 1.2.3). Fonte: PPC, seções 1.2.3 e 2.2.4.</p>
+
+  <h3 id="h-cargos">Cargos, níveis e atribuições</h3>
+  <p class="lede">O que segue vem de normas e de anúncios de vaga, não do PPC. Não encontrei tabela oficial de níveis para a profissão: os nomes dos cargos (analista, especialista, supervisor, coordenador, gerente) e os rótulos júnior, pleno e sênior mudam de empresa para empresa. Cada anúncio abaixo é um exemplo datado, não uma regra do mercado.</p>
+  <div class="exgrid">
+
+    <article class="ex">
+      <div class="k">Base legal</div>
+      <h3>Título, conselho e ocupação</h3>
+      <ul>
+        <li><b>Conselho:</b> o PPC afirma que a Decisão Plenária 0669/2007 do Confea concede ao Engenheiro Bioquímico as atividades do art. 7º da Lei 5.194 e do art. 17 da Resolução 218/1973, com restrições às atividades da indústria petroquímica. Não abri a decisão no Confea; a informação é a do PPC.</li>
+        <li><b>Título parecido:</b> a Resolução Confea 1.108/2018 trata do “Engenheiro de Bioprocessos e Biotecnologia”, na modalidade Química, para processos e produtos com sistemas biológicos nas áreas de saúde, agricultura, alimentos e bebidas, energia, meio ambiente, indústria bioquímica e tratamento de resíduos. O texto não menciona “Engenheiro Bioquímico”. Não confirmei se a 1.108 foi substituída.</li>
+        <li><b>CBO:</b> não encontrei um código da CBO específico para “engenheiro bioquímico”. As ocupações próximas que apareceram foram 2145-05 (Engenheiro químico) e 2011-05 (Bioengenheiro, família dos profissionais da biotecnologia), em páginas de consulta privadas. Não confirmei qual código as empresas usam para este egresso.</li>
+      </ul>
+      <p class="refs"><a href="https://www.normasbrasil.com.br/norma/resolucao-1108-2018_371227.html">Res. Confea 1.108/2018</a><a href="https://buscadorncm.com.br/cbo/214505">CBO 2145-05 (buscador privado)</a><a href="https://buscadorncm.com.br/cbo/201105">CBO 2011-05 (buscador privado)</a></p>
+    </article>
+
+    <article class="ex">
+      <div class="k">Indústria de bioprocessos e bioinsumos</div>
+      <h3>Da operação à gerência</h3>
+      <ul>
+        <li><b>Analista (júnior ou nível II):</b> um anúncio de analista de bioprocessos (Indaiatuba/SP, 08/07/2024, temporário) lista operar biorreatores de bancada, preparar meios de cultura e conduzir experimentos de separação e purificação (downstream). Outro, de analista de scale up e processos II (Piracicaba/SP, 29/10/2025), pede ao menos 2 anos em fermentação líquida e conhecimento de BPF.</li>
+        <li><b>Especialista:</b> um anúncio de Piracicaba/SP (16/04/2025) descreve desenvolver e otimizar processos fermentativos e definir parâmetros críticos de escalonamento, e prefere 4 anos ou mais de experiência em escalonamento.</li>
+        <li><b>Supervisor:</b> um anúncio de supervisão industrial de processos fermentativos (Fazenda Rio Grande/PR, junho de 2026) inclui analisar resultados de fermentações e propor ajustes de rendimento e estabilidade; considera pós-graduação em bioprocessos um diferencial.</li>
+        <li><b>Coordenador:</b> o anúncio de coordenador(a) de P&amp;D em bioprocessos (Piracicaba/SP, 19/08/2025) pede mínimo de 5 anos em P&amp;D de processos fermentativos e escalonamento, com experiência em gestão de equipes.</li>
+        <li><b>Gerente:</b> um anúncio de gerente de produção de inoculantes (Fazenda Rio Grande/PR, 27/03/2026) pede ao menos 5 anos em fermentação, do laboratório à grande escala, e liderança de equipes operacionais.</li>
+      </ul>
+      <p class="refs"><a href="https://www.agrobase.com.br/oportunidades/2024/07/analista-de-bioprocessos-indaiatuba-sp/">Analista (2024)</a><a href="https://www.agrobase.com.br/oportunidades/2025/10/analista-de-scale-up-e-processos-ii-piracicaba-sp/">Scale up II</a><a href="https://www.agrobase.com.br/oportunidades/2025/04/especialista-de-bioprocessos-piracicaba-sp/">Especialista</a><a href="https://www.agrobase.com.br/oportunidades/2026/06/supervisora-industrial-processos-fermentativos-fazenda-rio-grande-pr/">Supervisor</a><a href="https://www.agrobase.com.br/oportunidades/2025/08/coordenadora-de-pesquisa-e-desenvolv-bioprocessos-piracicaba-sp/">Coordenador P&amp;D</a><a href="https://www.agrobase.com.br/oportunidades/2026/03/gerente-de-producao-inoculantes-microbiologicos-fazenda-rio-grande-pr/">Gerente</a></p>
+      <div class="caveat">Os anúncios acima vêm de um portal de vagas do agronegócio (Agrobase) e a maioria aceita engenharia de bioprocessos, engenharia química, biotecnologia ou áreas correlatas. Só encontrei um anúncio que cita “Engenharia Bioquímica” pelo nome: analista de P&amp;D em Cascavel/PR (sem data na página), que pede também microbiologia aplicada e fermentação industrial. <a href="https://plataforma.agrobase.com.br/?p=1245317">Vaga</a>.</div>
+    </article>
+
+    <article class="ex">
+      <div class="k">P&amp;D e inovação</div>
+      <h3>Pesquisa dentro da empresa</h3>
+      <ul>
+        <li><b>Analista de desenvolvimento tecnológico sênior (Campinas/SP, sem data na página):</b> propor, executar e monitorar experimentos de bioprocessos em escala de laboratório e piloto. Pede graduação em biotecnologia, engenharia de bioprocessos, biologia, química ou áreas correlatas, mestrado ou doutorado desejável com ênfase em bioprocessos ou engenharia bioquímica, e experiência sólida com biorreatores.</li>
+        <li><b>Coordenador de inovação e tecnologia em biotecnologia (São Bernardo do Campo/SP, 24/09/2026):</b> usa a experiência em engenharia de bioprocessos e escalonamento para avaliar estratégias experimentais, critérios de escala e viabilidade industrial; o anúncio pede mestrado ou doutorado.</li>
+      </ul>
+      <p class="refs"><a href="https://plataforma.agrobase.com.br/?p=994672">Analista sênior</a><a href="https://www.agrobase.com.br/oportunidades/2026/09/coordenador-de-inovacao-e-tecnologia-biotecnologia-sao-bernardo-do-campo-sp/">Coordenador de inovação</a></p>
+    </article>
+
+    <article class="ex">
+      <div class="k">Saúde, regulação e resíduos</div>
+      <h3>O que não pesquisei</h3>
+      <p>As áreas de biofármacos e vacinas, de regulação (Anvisa) e de tratamento de resíduos aparecem no PPC, mas não levantei cargos, editais de concurso ou normas específicas delas. Por isso não há aqui atribuições nem exigências para essas áreas.</p>
+      <div class="caveat">Responsável técnico por produto ou serviço regulado nem sempre pode ser um engenheiro: depende da norma de cada caso. Confirme antes de assumir que o diploma basta.</div>
+    </article>
+
+    <article class="ex">
+      <div class="k">Pesquisa e docência</div>
+      <h3>Bolsas e carreira de professor</h3>
+      <ul>
+        <li><b>Bolsas do CNPq (tabela com vigência a partir de 01/02/2023, segundo o Metrópoles):</b> iniciação científica R$ 700; mestrado R$ 2.100; doutorado R$ 3.100. Para pós-doutorado, as fontes divergem: o Metrópoles traz R$ 5.200 (júnior) e R$ 5.500 (sênior); um blog de 2026 traz R$ 4.100 e R$ 5.200. Confira a tabela oficial do CNPq.</li>
+        <li><b>Professor federal (Magistério Superior):</b> o plano de carreira consultado lista as classes A, B (Adjunto), C (Associado) e D (Titular). Um edital da UFPE de 2025 oferece ingresso como Professor Adjunto A para quem tem doutorado e Assistente A para quem tem mestrado. São exemplos de outra área, usados só para mostrar a estrutura da carreira.</li>
+      </ul>
+      <p class="refs"><a href="https://www.metropoles.com/brasil/educacao-br/cnpq-publica-tabela-com-novos-valores-mensais-de-bolsas-veja">Metrópoles, 23/02/2023</a><a href="https://www.gov.br/cnpq/pt-br/acesso-a-informacao/bolsas-e-auxilios/copy_of_modalidades/tabela-de-valores-no-pais">Tabela CNPq (oficial; não reaberta por mim)</a><a href="https://doutoranathalia.com.br/blog/valor-bolsa-cnpq-mestrado/">Blog (2026)</a><a href="https://departamentos.ufrrj.br/dce/wp-content/uploads/sites/2/2024/09/Plano-de-carreira-do-Magisterio-Superior.pdf">Plano de carreira (UFRRJ)</a><a href="https://www.ufpe.br/documents/40615/846207/EDITAL+N%C2%BA+8%2C+DE+5+DE+AGOSTO+DE+2025+-+EDITAL+N%C2%BA+8%2C+DE+5+DE+AGOSTO+DE+2025+-+DOU+-+Imprensa+Nacional.pdf/6fae427b-d1f1-4b9e-ab52-7167f0cdf958">Edital UFPE 8/2025</a></p>
+    </article>
+
+    <article class="ex">
+      <div class="k">Remuneração</div>
+      <h3>Faixa de referência, com ressalvas</h3>
+      <ul>
+        <li><b>Mercado formal (CLT), CBO 2145-05 Engenheiro químico:</b> média de R$ 11.857,08 por mês, de R$ 4.695,02 a R$ 17.681,55, amostra de 1.101 pessoas, dados do Caged compilados pelo Portal Salário (08/2025 a 07/2026). É a ocupação mais próxima que encontrei; não há faixa específica para engenheiro bioquímico.</li>
+        <li><b>Piso legal (Lei 4.950-A/1966):</b> em 03/08/2026 o Confea informou que a atualização do valor está em debate na MP 1.334/2026. Valor em discussão é proposta, não valor em vigor.</li>
+      </ul>
+      <p class="refs"><a href="https://www.salario.com.br/profissao/engenheiro-quimico-cbo-214505">Portal Salário</a><a href="https://www.confea.org.br/node/233396">Confea, 03/08/2026</a></p>
+      <div class="caveat">Média de site agregador não é tabela oficial e muda a cada atualização. Não pesquisei salários de concurso para esta área. Consulta em 22/11/2026.</div>
+    </article>
+  </div>
+</section>
+
+<section class="blk" aria-labelledby="h-amb">
+  <h2 id="h-amb">Ambientes reais do curso em Lorena</h2>
+  <div class="exgrid">
+    <article class="ex">
+      <h3>Empresa júnior e entidades</h3>
+      <div><div class="k">Na prática</div><p>A <b>EEL Júnior</b> foi criada em 2011, faz parte do Movimento Empresa Júnior e trabalha com serviços interdisciplinares entre engenharias. A página de entidades da escola também lista a Gamma Jr. Engenharia, o Centro Acadêmico de Engenharia Bioquímica, o Clube de Biologia Sintética EEL-USP e a Enactus EEL-USP.</p></div>
+      <p class="caveat">Não verifiquei se cada entidade está ativa hoje nem como o aluno entra.</p>
+      <p class="refs"><a href="https://sites.usp.br/entidadeseel/eel-junior/">EEL Júnior</a><a href="https://sites.usp.br/entidadeseel">Entidades da EEL</a></p>
+    </article>
+    <article class="ex">
+      <h3>Departamento de Biotecnologia e pesquisa</h3>
+      <div><div class="k">O que diz o PPC</div><p>O Departamento de Biotecnologia vem de um Centro de Biotecnologia criado em 1987 com apoio do Banco Mundial, e iniciou a pós-graduação em 1994 (seção 1.2). Os alunos também têm TCC obrigatório em temas de bioprocessos e bioprodutos, orientado por docente da EEL.</p></div>
+      <div><div class="k">Na prática</div><p>A página do departamento cita o Laboratório de Bioquímica e Bioprodutos Renováveis (BBioPRO), implantado em 2015 por um de seus professores.</p></div>
+      <p class="caveat">Não levantei a lista de laboratórios nem de convênios com empresas.</p>
+      <p class="refs">Fontes: PPC, seção 1.2. <a href="https://sites.usp.br/lot/prof-valdeir-arantes/">Página do Prof. Valdeir Arantes</a> <a href="https://sites.usp.br/lot/wp-content/uploads/sites/255/2025/09/2021.07.16-Normas-TCC-I-e-TCC-II_EB.pdf">Normas de TCC</a></p>
+    </article>
+  </div>
+</section>
+
+<section class="blk" aria-labelledby="h-casos">
+  <h2 id="h-casos">Exemplos de projetos na área</h2>
+  <p class="lede">Quatro casos brasileiros ligados ao que o curso estuda: bioprocessos, enzimas, biocombustíveis e produção biológica em escala. Os números são os das reportagens, com data. Um dos casos é de dificuldade, não de sucesso consolidado, e está marcado.</p>
+  <div class="exgrid">
+
+    <article class="ex">
+      <h3>Plástico verde da Braskem</h3>
+      <div class="who">Braskem · Triunfo (RS)</div>
+      <p>A planta de eteno renovável, que usa etanol de cana-de-açúcar como matéria-prima, foi inaugurada em 24/09/2010 para produzir 200 mil toneladas por ano de polietileno verde (Pesquisa FAPESP). Em 2022 a empresa registrou recorde de vendas de polietileno verde, 179 mil toneladas, e a ampliação da capacidade de 200 para 260 mil toneladas por ano estava na reta final em março de 2023 (Jornal do Comércio). Em setembro de 2026, a empresa informou que a planta completava 16 anos e que já havia absorvido mais de 4,6 milhões de toneladas de CO2 (Jornal do Comércio).</p>
+      <p class="refs"><a href="https://revistapesquisa.fapesp.br/resina-verde-no-mercado/">Pesquisa FAPESP</a><a href="https://www.jornaldocomercio.com/economia/2023/03/amp/1099691-ampliacao-da-unidade-de-plastico-verde-em-triunfo-entra-na-reta-final.html">Jornal do Comércio, 03/2023</a><a href="https://www.jornaldocomercio.com/economia/2026/09/1264156-planta-de-plastico-verde-em-triunfo-completa-16-anos-de-producao.html">Jornal do Comércio, 09/2026</a></p>
+      <div class="caveat">A conversão do etanol em eteno é feita na planta; a etapa de fermentação que gera o etanol acontece fora dela. O número de CO2 é informação da própria empresa. Não verifiquei patentes.</div>
+    </article>
+
+    <article class="ex">
+      <h3>Coquetel de enzimas brasileiro para etanol de segunda geração</h3>
+      <div class="who">Equipe do Laboratório Nacional de Biorrenováveis (LNBR-CNPEM), Campinas</div>
+      <p>Pesquisadores modificaram geneticamente o fungo <i>Trichoderma reesei</i> para produzir enzimas que quebram a palha e o bagaço da cana. A plataforma chegou a 80 g/L de enzimas, mais que o dobro dos 37 g/L da maior concentração antes relatada para esse tipo de fungo, foi desenvolvida em dois anos e meio e teve a produção e o escalonamento testados em planta-piloto semi-industrial para avaliar a viabilidade econômica. A notícia lembra que o coquetel importado pode representar até 50% do custo de produção do combustível.</p>
+      <p class="refs">Fonte: <a href="https://agencia.fapesp.br/34318">Agência FAPESP, 08/10/2020</a></p>
+      <div class="caveat">É resultado de pesquisa e piloto, não de uma usina comercial; a notícia é de 2020 e não verifiquei se a tecnologia foi adotada depois.</div>
+    </article>
+
+    <article class="ex">
+      <h3>Etanol de segunda geração: Raízen e GranBio <span class="lv">(caso de dificuldades)</span></h3>
+      <div class="who">Raízen (Piracicaba/SP) e GranBio (São Miguel dos Campos/AL)</div>
+      <p>Segundo a Pesquisa FAPESP de 18/06/2018, a Raízen instalou sua planta em 2014 e produziu 12 milhões de litros de etanol celulósico na safra anterior, com meta de 25 milhões em 2018; a empresa disse ter sido surpreendida por problemas de engenharia, sobretudo corrosão no pré-tratamento, que tornou a operação intermitente. A GranBio chegou em 2017 à capacidade de 28 milhões de litros, dos quais 5 milhões foram exportados; a tecnologia importada não funcionou como prometido e a hidrólise passou de 19 horas prometidas para 48 a 90 horas.</p>
+      <p class="refs">Fonte: <a href="https://cnpem.br/en/obstaculos-no-caminho/">Pesquisa FAPESP, 18/06/2018 (cópia no site do CNPEM)</a></p>
+      <div class="caveat">É uma reportagem de 2018. Não verifiquei a situação atual das duas usinas. Entra aqui porque mostra, com números, o tipo de problema de escalonamento que a engenharia bioquímica enfrenta.</div>
+    </article>
+
+    <article class="ex">
+      <h3>Butantan-DV, vacina de dose única contra a dengue</h3>
+      <div class="who">Instituto Butantan · São Paulo</div>
+      <p>A Anvisa aprovou a Butantan-DV em 26/11/2025, para a população de 12 a 59 anos. O instituto já produzia a vacina em seu parque industrial e tinha mais de 1 milhão de doses prontas antes da aprovação. A fábrica, no Centro Bioindustrial do Butantan, foi inspecionada pela Anvisa e recebeu certificado de Boas Práticas de Fabricação, segundo notícia de dezembro de 2024. Para ampliar a escala, o Butantan fechou parceria com a WuXi Vaccines para fabricar mais 60 milhões de doses em dois anos (Pesquisa FAPESP). A Pesquisa FAPESP informa que o imunizante protegeu 74,7% dos vacinados de desenvolver a doença.</p>
+      <p class="refs"><a href="https://agencia.fapesp.br/index.php/anvisa-aprova-vacina-contra-a-dengue-do-instituto-butantan/56599">Agência FAPESP, 27/11/2025</a><a href="https://revistapesquisa.fapesp.br/anvisa-aprova-vacina-do-butantan-contra-a-dengue/">Pesquisa FAPESP</a><a href="https://jornalopcao.com.br/ultimas-noticias/butantan-solicita-aprovacao-da-vacina-contra-dengue-a-anvisa-664485/">Jornal Opção, 16/12/2024</a></p>
+      <div class="caveat">Um documento da Anvisa de 2026 (voto sobre importação excepcional) registra, segundo o próprio Butantan, capacidade fabril de 2,6 milhões de doses por ano, o que ajuda a entender por que houve parceria para escalar; não conferi a data exata desse documento. <a href="https://www.gov.br/anvisa/pt-br/composicao/diretoria-colegiada/reunioes-da-diretoria/votos-dos-circuitos-deliberativos-1/2026-1/cd-0456-2026-voto-dire2.pdf">Voto Anvisa</a>. Quem projeta e opera esse tipo de produção são equipes multidisciplinares; as fontes não dizem quais formações.</div>
+    </article>
+  </div>
+  <p class="caveat">Sobre patentes: não confirmei patentes desses casos no INPI, então não as listo.</p>
+</section>
+
+<section class="blk" aria-labelledby="h-av">
+  <h2 id="h-av">Avisos sobre os documentos</h2>
+  <div class="caveat"><b>PPC e Júpiter não descrevem a mesma grade.</b> O PPC enviado (versão curricular 2025, de 06/11/2024) usa nomes antigos, como Cálculo I a IV, Física I a III e Álgebra Linear, lista “Enzimologia” no 7º período e soma 4.200 h. A grade do Júpiter, com início em 01/01/2027 e marcada “curso reformulado”, usa Fundamentos de Matemática, Cálculo Diferencial e Integral, Estruturas Lineares e Física Newtoniana, lista “Tecnologia de Proteínas” no 7º período e soma 4.091 h. Não presumi que “Enzimologia” e “Tecnologia de Proteínas” sejam a mesma disciplina. Este painel usa o Júpiter; o PPC serviu para conferir o perfil geral do curso.</div>
+  <div class="caveat"><b>Pré-requisitos.</b> Vêm da página da grade no Júpiter, que os classifica como “requisito”, “requisito fraco” ou “indicação de conjunto”. Não verifiquei a definição de cada rótulo e mantive os nomes do Júpiter.</div>
+  <div class="caveat"><b>Extensão.</b> As disciplinas LOQ4053 (60 h) e LOT2062 (90 h) trazem uma coluna a mais no Júpiter. A soma de 150 h bate com o texto da página, que diz 150 h de extensão em disciplinas obrigatórias, então tratei como extensão (cálculo meu). O Estágio Supervisionado traz 180 h na coluna de estágio.</div>
+  <div class="caveat"><b>Observações da página do Júpiter</b> (resumo): as disciplinas LOT2062, LOT2063, LOT2064, LOT2065 e LOB1202 são obrigatórias para ingressantes a partir de 2022, 2023, 2024, 2023 e 2023, respectivamente, e optativas livres para quem entrou antes. Há 386 h de extensão exigidas (150 h em disciplinas e 236 h em projetos de extensão).</div>
+</section>
+
+<footer>
+  <p><b>Fonte da grade.</b> <a href="https://uspdigital.usp.br/jupiterweb/listarGradeCurricular?codcg=88&codcur=88152&codhab=0&tipo=N">Grade curricular no Júpiter</a>, lida em 22/11/2026. Créditos, horas e pré-requisitos foram conferidos por soma contra os subtotais da página (3.615 h obrigatórias). As ementas são cópia do campo “Ementa” das páginas de disciplina do Júpiter; quando a página repete o texto, mantive uma cópia, e erros de grafia da fonte foram mantidos. PPC consultado: <a href="https://sites.usp.br/lot/wp-content/uploads/sites/255/2024/11/Final_Projeto-Pedagogico-do-Curso-de-EB-06Novembro24.pdf">versão curricular 2025</a>.</p>
+  <p><b>Fontes de ingresso.</b> Guia de carreiras da Fuvest, matérias de sites agregadores (Quero Bolsa, Blog do Vestibular, Estratégia, Aprova Total), todos linkados nos cartões, consultados em 22/11/2026. Agregadores não são fonte oficial.</p>
+  <p><b>Limites.</b> Falta nesta versão: ementas de 61 disciplinas, as notas de corte da Fuvest e do Enem-USP, cargos e normas das áreas de saúde, regulação e resíduos, e salários de concurso. As seções de cargos e de projetos usam anúncios e reportagens datados como exemplos, não como regra da profissão. Nota de corte passada não prevê a futura. A grade depende de JavaScript: se a pré-visualização não mostrar a grade, abra o link direto no navegador.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var DATA = {"items": [{"sem": "1", "code": "LOB1009", "nome": "Leitura e Interpretação de Desenho Técnico", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [], "cat": "bas", "opt": false, "em": "-Introdução\n-Teoria Elementar do Desenho Projetivo\n-Projeções Ortogonais pelo 1º Diedro\n-Projeções Ortogonais pelo 3º Diedro\n-Leitura e Interpretação de Desenhos\n-Escalas\n-Desenhos com Instrumentos\n-Cortes e Representações Convencionais\n-Projeções Auxiliares\n-Cotação\n-Desenhos de Conjuntos e Detalhes\n-Aplicação de Tolerâncias e Ajustes\n-Símbolos de Acabamento Superficial\n-Desenho de Elementos de Máquina\n-Desenho de Equipamentos e Acessórios", "ativ": "01/01/2025", "enote": ""}, {"sem": "1", "code": "LOB1036", "nome": "Geometria Vetorial", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [], "cat": "bas", "opt": false, "em": "Vetores. Vetores no R² e no R³. Dependência Linear. Produtos de Vetores. A Reta. O Plano. Distâncias. Coordenadas Polares. Mudança de Coordenadas. Seções Cônicas. Superfícies Quádricas. Equações Paramétricas. Coordenadas Cilíndricas e Esféricas.", "ativ": "01/01/2027", "enote": ""}, {"sem": "1", "code": "LOB1059", "nome": "Fundamentos de Matemática", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [], "cat": "bas", "opt": false, "em": "Números reais e suas propriedades. Fatoração e expressões racionais. Desigualdades e valor absoluto. Funções: definição, domínio, imagem, composição e inversa. Funções polinomiais, exponenciais, logarítmicas e trigonométricas. Equações e sistemas lineares. Limites de funções racionais, algébricas e trigonométricas; limites laterais e no infinito. Assíntotas, continuidade e teorema do valor intermediário.", "ativ": "01/01/2027", "enote": ""}, {"sem": "1", "code": "LOQ4100", "nome": "Fundamentos de Química para Engenharia I-B", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [], "cat": "quim", "opt": false, "em": "Sistemas de Unidades. Estrutura Atômica. Tabela Periódica. Ligação Química. Nomenclatura de compostos inorgânicos. Definições de ácidos e bases. Forças intermoleculares. Soluções. Gases. Reações químicas em solução aquosa. Estequiometria e Cálculos em Química.", "ativ": "01/01/2022", "enote": ""}, {"sem": "1", "code": "LOT2002", "nome": "Biologia Celular", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [], "cat": "bio", "opt": false, "em": "Origem e evolução das células; análise estrutural das células; organização interna das células.", "ativ": "01/01/2026", "enote": ""}, {"sem": "1", "code": "LOT2043", "nome": "Introdução à Engenharia Bioquímica", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [], "cat": "bio", "opt": false, "em": "1. Histórico da Engenharia Bioquímica 2. Engenharia Bioquímica: Definições e conceitos 3. Mercado de trabalho de Engenharia 4. Áreas de atuação do Engenheiro Bioquímico 5. A Indústria de Bioprocessos 6. Escalas de produção 7. Estudo de casos (processos biotecnológicos) 8. Visita supervisionada.", "ativ": "01/01/2025", "enote": ""}, {"sem": "1", "code": "LOT2063", "nome": "Comunicação Científica em Biotecnologia", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [], "cat": "bio", "opt": false, "em": "1. O método científico. 2. Introdução à Biotecnologia. 3. Importância da Divulgação Científica. 4. Ética na Comunicação Científica. 5. Mídias sociais na Divulgação Científica. 6. Escrita Científica. 7. Visita supervisionada prevista.", "ativ": "15/07/2025", "enote": ""}, {"sem": "2", "code": "LOB1018", "nome": "Física Newtoniana", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [], "cat": "bas", "opt": false, "em": "Introdução. Vetores. Movimento unidimensional. Movimento bidimensional. Princípios da dinâmica. Primeira, Segunda e Terceira Leis de Newton. Aplicações. Trabalho e energia. Conservação da energia. Conservação do momento linear. Colisões. Rotação do corpo rígido. Dinâmica do corpo rígido. Gravitação.", "ativ": "01/01/2027", "enote": ""}, {"sem": "2", "code": "LOB1038", "nome": "Laboratório de Física Newtoniana", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [], "cat": "bas", "opt": false, "em": "Instrumentos de medidas; Construção de Tabelas e Gráficos; Método dos mínimos quadrados; Estática, Cinemática; Dinâmica; Pêndulo Simples", "ativ": "01/01/2027", "enote": ""}, {"sem": "2", "code": "LOB1060", "nome": "Cálculo Diferencial e Integral", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1059", "k": "f"}], "cat": "bas", "opt": false, "em": "Estudo de derivadas e integrais de funções reais. Regras de derivação, teoremas fundamentais e aplicações em máximos, mínimos e taxas relacionadas. Integrais definidas e impróprias, técnicas de integração e aplicações em cálculo de áreas e volumes.", "ativ": "01/01/2027", "enote": ""}, {"sem": "2", "code": "LOQ4095", "nome": "Química Geral Experimental", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOQ4100", "k": "f"}], "cat": "quim", "opt": false, "em": "1 - Introdução ao Laboratório Químico; 2 - Pesos e Medidas; 3 - Técnicas de Separação de Misturas; 4 - Fenômenos físicos; 5 – Miscibilidade; 6 – Reações Químicas; 7 – Soluções; 8– Titrimetria; 9 – Equilíbrio Químico.", "ativ": "01/01/2018", "enote": ""}, {"sem": "2", "code": "LOQ4098", "nome": "Fundamentos de Química para Engenharia II-A", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOQ4100", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "2", "code": "LOT2053", "nome": "Microbiologia: da Teoria à Prática", "ca": 6, "ct": 0, "ch": 90, "ext": 0, "ce": 0, "req": [{"c": "LOT2002", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "3", "code": "LOB1019", "nome": "Fluidos, Ondas e Termodinâmica", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1018", "k": "f"}, {"c": "LOB1060", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "3", "code": "LOB1024", "nome": "Mecânica", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1036", "k": "f"}, {"c": "LOB1018", "k": "f"}, {"c": "LOB1060", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "3", "code": "LOB1061", "nome": "Estruturas Lineares", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1036", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "3", "code": "LOQ4053", "nome": "Balanços de Massa e Energia", "ca": 2, "ct": 2, "ch": 90, "ext": 60, "ce": 0, "req": [], "cat": "quim", "opt": false}, {"sem": "3", "code": "LOT2036", "nome": "Química Bioinorgânica", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOQ4098", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "3", "code": "LOT2059", "nome": "Química Orgânica Fundamental", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOQ4098", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "4", "code": "LOB1012", "nome": "Estatística", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1060", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "4", "code": "LOB1044", "nome": "Computação Aplicada à Engenharia", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1060", "k": "f"}, {"c": "LOB1061", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "4", "code": "LOB1052", "nome": "Cálculo Vetorial", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1060", "k": "f"}, {"c": "LOB1061", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "4", "code": "LOQ4087", "nome": "Termodinâmica Química Aplicada I", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1019", "k": "f"}, {"c": "LOQ4053", "k": "f"}, {"c": "LOB1060", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "4", "code": "LOT2005", "nome": "Bioquímica Experimental I", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOT2007", "k": "c"}], "cat": "bio", "opt": false}, {"sem": "4", "code": "LOT2007", "nome": "Bioquímica I", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2002", "k": "f"}, {"c": "LOT2059", "k": "f"}], "cat": "bio", "opt": false, "em": "01 Água. 02 Aminoácidos. 03 Proteínas:Estrutura primária. 04 Proteínas:Estrutura tridimensional. 05 Purificação de Preteínas. 06. Função das proteínas. 07 Enzimas: catálise enzimática. 07 Cinética enzimática, inibição e regulação. 08 Carboidratos. 09 Lipídeos.", "ativ": "01/01/2025", "enote": "texto repetido duas vezes no Júpiter"}, {"sem": "4", "code": "LOT2039", "nome": "Estrutura e Química de Materiais Lignocelulósicos", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2059", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "5", "code": "LOB1006", "nome": "Equações Diferenciais", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1060", "k": "f"}, {"c": "LOB1061", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "5", "code": "LOB1039", "nome": "Laboratório de Eletromagnetismo", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOB1038", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "5", "code": "LOB1053", "nome": "Introdução ao Eletromagnetismo", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1018", "k": "f"}, {"c": "LOB1052", "k": "f"}, {"c": "LOB1060", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "5", "code": "LOM3016", "nome": "Introdução à Ciência dos Materiais", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [], "cat": "bas", "opt": false}, {"sem": "5", "code": "LOQ4083", "nome": "Fenômenos de Transporte I", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1024", "k": "f"}, {"c": "LOB1052", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "5", "code": "LOQ4088", "nome": "Termodinâmica Química Aplicada II", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOQ4087", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "5", "code": "LOT2006", "nome": "Bioquímica Experimental II", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOT2008", "k": "c"}], "cat": "bio", "opt": false}, {"sem": "5", "code": "LOT2008", "nome": "Bioquímica II", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2007", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "5", "code": "LOT2030", "nome": "Tecnologia de Conversão de Biomassa Vegetal", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2039", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "6", "code": "LOB1011", "nome": "Eletricidade Aplicada", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOB1053", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "6", "code": "LOB1040", "nome": "Laboratório de Eletricidade", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOB1039", "k": "f"}, {"c": "LOB1053", "k": "f"}], "cat": "bas", "opt": false}, {"sem": "6", "code": "LOQ4084", "nome": "Fenômenos de Transporte II", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOB1006", "k": "f"}, {"c": "LOB1019", "k": "f"}, {"c": "LOQ4083", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "6", "code": "LOQ4085", "nome": "Operações Unitárias I", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOQ4083", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "6", "code": "LOT2028", "nome": "Tecnologia de Processos Fermentativos", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2008", "k": "f"}, {"c": "LOT2053", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "6", "code": "LOT2040", "nome": "Engenharia Genética Teórica e Prática", "ca": 5, "ct": 0, "ch": 75, "ext": 0, "ce": 0, "req": [{"c": "LOT2053", "k": "f"}, {"c": "LOT2002", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "6", "code": "LOT2054", "nome": "Engenharia de Segurança do Trabalho e Biossegurança", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [], "cat": "bio", "opt": false}, {"sem": "6", "code": "LOT2058", "nome": "Análise Técnico-Econômica de Bioprocessos", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOQ4053", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "6", "code": "LOT2060", "nome": "Tecnologia de Biopolímeros", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOT2059", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "6", "code": "LOT2061", "nome": "Química Analítica Aplicada a Bioprocessos", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOT2005", "k": "f"}, {"c": "LOQ4098", "k": "f"}, {"c": "LOQ4095", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "7", "code": "LOB1202", "nome": "Introdução ao Gerenciamento de Projetos Ambientais", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [], "cat": "bas", "opt": false}, {"sem": "7", "code": "LOQ4054", "nome": "Fenômenos de Transporte III", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOQ4084", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "7", "code": "LOQ4086", "nome": "Operações Unitárias II", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOQ4084", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "7", "code": "LOT2013", "nome": "Engenharia Bioquímica I", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2028", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "7", "code": "LOT2017", "nome": "Tecnologia de Proteínas", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2007", "k": "f"}, {"c": "LOT2040", "k": "f"}, {"c": "LOT2053", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "7", "code": "LOT2035", "nome": "Tratamento Biológico de Efluentes", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2053", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "7", "code": "LOT2037", "nome": "Instrumentação e Controle de Bioprocessos", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOB1011", "k": "f"}, {"c": "LOQ4084", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "7", "code": "LOT2049", "nome": "Genética e Biotecnologia Vegetal", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2008", "k": "f"}, {"c": "LOT2040", "k": "f"}, {"c": "LOT2053", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "7", "code": "LOT2064", "nome": "Empreendedorismo Tecnológico", "ca": 4, "ct": 2, "ch": 120, "ext": 0, "ce": 0, "req": [{"c": "LOT2058", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "8", "code": "LOQ4057", "nome": "Operações Unitárias III", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOQ4054", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "8", "code": "LOQ4062", "nome": "Laboratório de Engenharia Química III", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOQ4085", "k": "f"}, {"c": "LOQ4086", "k": "f"}], "cat": "quim", "opt": false}, {"sem": "8", "code": "LOT2015", "nome": "Engenharia Bioquímica II", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2013", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "8", "code": "LOT2022", "nome": "Modelagem e Simulação de Processos Biotecnológicos", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOB1044", "k": "f"}, {"c": "LOQ4086", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "8", "code": "LOT2023", "nome": "Processos Bioquímicos Industriais", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOQ4086", "k": "f"}, {"c": "LOT2028", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "8", "code": "LOT2025", "nome": "Reatores Bioquímicos", "ca": 3, "ct": 0, "ch": 45, "ext": 0, "ce": 0, "req": [{"c": "LOT2013", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "8", "code": "LOT2047", "nome": "Laboratório de Engenharia Bioquímica", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOT2017", "k": "f"}, {"c": "LOT2013", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "9", "code": "LOT2055", "nome": "Estatística em Bioprocessos", "ca": 3, "ct": 1, "ch": 75, "ext": 0, "ce": 0, "req": [{"c": "LOT2023", "k": "f"}, {"c": "LOB1011", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "9", "code": "LOT2062", "nome": "Solução de Problemas de Engenharia", "ca": 4, "ct": 1, "ch": 90, "ext": 90, "ce": 0, "req": [{"c": "LOT2013", "k": "F"}, {"c": "LOT2023", "k": "F"}, {"c": "LOT2049", "k": "F"}, {"c": "LOT2030", "k": "F"}, {"c": "LOT2060", "k": "F"}, {"c": "LOT2017", "k": "F"}], "cat": "bio", "opt": false}, {"sem": "10", "code": "LOT2044", "nome": "Estágio Supervisionado", "ca": 0, "ct": 6, "ch": 180, "ext": 0, "ce": 180, "req": [], "cat": "bio", "opt": false}, {"sem": "10", "code": "LOT2065", "nome": "Projeto Final de Curso em Engenharia Bioquímica", "ca": 1, "ct": 4, "ch": 135, "ext": 0, "ce": 0, "req": [{"c": "LOT2062", "k": "f"}, {"c": "LOB1202", "k": "f"}], "cat": "bio", "opt": false}, {"sem": "O1", "code": "LOT2068", "nome": "Tutoria Acadêmica em Engenharia Bioquímica", "ca": 1, "ct": 0, "ch": 15, "ext": 0, "ce": 0, "req": [], "cat": "bio", "opt": true}, {"sem": "O6", "code": "LOT2026", "nome": "Tecnologia de Alimentos", "ca": 4, "ct": 0, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOT2008", "k": "f"}, {"c": "LOT2053", "k": "f"}], "cat": "bio", "opt": true}, {"sem": "O7", "code": "LOQ4099", "nome": "Engenharia de Cristais Moleculares", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOM3016", "k": "f"}, {"c": "LOT2059", "k": "f"}], "cat": "quim", "opt": true}, {"sem": "O7", "code": "LOT2038", "nome": "Tecnologia de Bebidas", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOT2052", "k": "c"}, {"c": "LOT2028", "k": "f"}], "cat": "bio", "opt": true}, {"sem": "O7", "code": "LOT2052", "nome": "Tecnologia de Bebidas Experimental", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOT2038", "k": "c"}, {"c": "LOT2028", "k": "f"}], "cat": "bio", "opt": true}, {"sem": "O8", "code": "LOT2051", "nome": "Tecnologia do Cultivo de Células Animais", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOT2013", "k": "f"}], "cat": "bio", "opt": true}, {"sem": "O8", "code": "LOT2066", "nome": "Introdução à Bioinformática", "ca": 2, "ct": 1, "ch": 60, "ext": 0, "ce": 0, "req": [{"c": "LOT2008", "k": "f"}, {"c": "LOT2040", "k": "f"}, {"c": "LOT2053", "k": "f"}], "cat": "bio", "opt": true}, {"sem": "O8", "code": "LOT2067", "nome": "Biotecnologia Farmacêutica", "ca": 2, "ct": 0, "ch": 30, "ext": 0, "ce": 0, "req": [{"c": "LOT2053", "k": "f"}, {"c": "LOT2040", "k": "f"}], "cat": "bio", "opt": true}]};
+  var items = DATA.items, byCode = {};
+  items.forEach(function(i){ byCode[i.code] = i; });
+  var KIND = {f:'requisito fraco', F:'requisito', c:'indicação de conjunto'};
+  var CAT = {bas:'Ciências básicas', quim:'Engenharia Química', bio:'Biotecnologia'};
+  var DEP = {LOB:'Ciências Básicas e Ambientais', LOM:'Engenharia de Materiais', LOQ:'Engenharia Química', LOT:'Biotecnologia'};
+  var openCode = null, filter = null;
+  var root = document.getElementById('grade');
+  document.getElementById('n-em').textContent = items.filter(function(i){return i.em;}).length;
+  function el(t,c,x){var e=document.createElement(t); if(c) e.className=c; if(x!=null) e.textContent=x; return e;}
+  function jup(code){ return 'https://uspdigital.usp.br/jupiterweb/obterDisciplina?sgldis='+code+'&codcur=88152&codhab=0'; }
+  var after = {};
+  items.forEach(function(i){ i.req.forEach(function(r){ (after[r.c]=after[r.c]||[]).push({c:i.code,k:r.k}); }); });
+
+  var groups = [];
+  for (var s=1; s<=10; s++) groups.push({key:String(s), title:s+'º', items:items.filter(function(i){return i.sem===String(s);})});
+  var opt = items.filter(function(i){return i.opt;});
+  groups.push({key:'O', title:'Opt.', items:opt, label:'optativas livres'});
+
+  groups.forEach(function(g){
+    var ca=0,ct=0,ch=0; g.items.forEach(function(i){ca+=i.ca;ct+=i.ct;ch+=i.ch;});
+    var sec = el('section','sem'); sec.setAttribute('aria-label', g.label || (g.title+' semestre'));
+    var head = el('div','sem-head'); head.appendChild(el('div','n',g.title));
+    head.appendChild(el('div','m',(g.label?g.label+' · ':'')+ (ca+ct)+' créd. · '+ch.toLocaleString('pt-BR')+' h'));
+    var chips = el('div','chips');
+    g.items.forEach(function(i){
+      var b = el('button','chip'); b.type='button'; b.dataset.cat=i.cat; b.dataset.code=i.code; b.dataset.opt=i.opt?'1':'0';
+      b.id='chip-'+i.code; b.setAttribute('aria-expanded','false'); b.setAttribute('aria-controls','det-'+g.key);
+      b.appendChild(el('span','nm',i.nome));
+      b.appendChild(el('span','mt',i.code+' · '+i.ch+' h'));
+      if (i.em) b.appendChild(el('span','ok','ementa'));
+      chips.appendChild(b);
+    });
+    var det = el('div','detail'); det.id='det-'+g.key; det.hidden=true; det.setAttribute('role','region');
+    sec.appendChild(head); sec.appendChild(chips); sec.appendChild(det); root.appendChild(sec);
+    g.items.forEach(function(i){ i.gkey = g.key; });
+  });
+
+  function linkRow(list){
+    var w = el('div','links');
+    list.forEach(function(r){
+      var b = el('button',null, byCode[r.c].nome+' ('+KIND[r.k]+')'); b.type='button'; b.dataset.go=r.c; w.appendChild(b);
+    });
+    return w;
+  }
+  function block(t){ var d=el('div','block'); d.appendChild(el('h4',null,t)); return d; }
+
+  function fill(det,i){
+    det.textContent='';
+    var top=el('div','detail-top'); var left=el('div'); left.style.cssText='display:flex;flex-direction:column;gap:10px';
+    left.appendChild(el('h3',null,i.nome));
+    var tags=el('div','tags');
+    tags.appendChild(el('span','tag','código '+i.code));
+    tags.appendChild(el('span','tag',CAT[i.cat]+' ('+DEP[i.code.slice(0,3)]+')'));
+    tags.appendChild(el('span','tag',i.ca+' créd. aula · '+i.ct+' créd. trabalho · '+i.ch+' h'));
+    tags.appendChild(el('span','tag',i.opt?'optativa livre':'obrigatória'));
+    if (i.ext) tags.appendChild(el('span','tag',i.ext+' h de extensão (cálculo meu)'));
+    if (i.ce) tags.appendChild(el('span','tag',i.ce+' h de estágio'));
+    left.appendChild(tags);
+    var close=el('button','close','Fechar'); close.type='button'; close.dataset.close='1';
+    top.appendChild(left); top.appendChild(close); det.appendChild(top);
+
+    var b1=block('Ementa (Júpiter)');
+    if (i.em){
+      b1.appendChild(el('p','ementa',i.em));
+      var s='Fonte: campo “Ementa” da página da disciplina no Júpiter, ativação em '+i.ativ+'.';
+      if (i.enote) s+=' Observação: '+i.enote+'.';
+      b1.appendChild(el('p','src',s));
+    } else {
+      b1.appendChild(el('p','none','Ementa ainda não transcrita neste painel.'));
+    }
+    var a=el('a',null,'Abrir a página oficial da disciplina no Júpiter'); a.href=jup(i.code); a.rel='noopener'; b1.appendChild(a);
+    det.appendChild(b1);
+
+    var b2=block('Pré-requisitos no Júpiter');
+    if (i.req.length) b2.appendChild(linkRow(i.req)); else b2.appendChild(el('p','none','Nenhum requisito listado na grade.'));
+    det.appendChild(b2);
+    var b3=block('Esta disciplina é requisito de'); var af=after[i.code]||[];
+    if (af.length) b3.appendChild(linkRow(af)); else b3.appendChild(el('p','none','Nenhuma outra disciplina da grade a lista como requisito.'));
+    det.appendChild(b3);
+  }
+
+  function setOpen(code, scroll){
+    if (openCode){
+      var prev=document.getElementById('chip-'+openCode); if (prev) prev.setAttribute('aria-expanded','false');
+      var pd=document.getElementById('det-'+byCode[openCode].gkey); if (pd) pd.hidden=true;
+    }
+    if (!code || code===openCode){ openCode=null; return; }
+    openCode=code;
+    var it=byCode[code], chip=document.getElementById('chip-'+code), det=document.getElementById('det-'+it.gkey);
+    chip.setAttribute('aria-expanded','true'); fill(det,it); det.hidden=false; det.setAttribute('aria-label','Detalhes de '+it.nome);
+    if (scroll){ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; det.scrollIntoView({behavior:rm?'auto':'smooth',block:'nearest'}); }
+  }
+  root.addEventListener('click',function(e){
+    var t=e.target.closest('button'); if(!t) return;
+    if (t.dataset.close){ var c0=openCode; setOpen(null); var c=c0&&document.getElementById('chip-'+c0); if(c) c.focus(); return; }
+    if (t.dataset.go){ var id=t.dataset.go; if (openCode===id) return; setOpen(id,true); var c2=document.getElementById('chip-'+id); if(c2) c2.focus({preventScroll:true}); return; }
+    if (t.classList.contains('chip')) setOpen(t.dataset.code,true);
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&openCode){ var c0=openCode; setOpen(null); var c=document.getElementById('chip-'+c0); if(c) c.focus(); } });
+  var btns=document.querySelectorAll('.legend button');
+  btns.forEach(function(b){ b.addEventListener('click',function(){
+    filter=(filter===b.dataset.f)?null:b.dataset.f;
+    btns.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.f===filter));});
+    document.querySelectorAll('.chip').forEach(function(c){c.classList.toggle('dim',!!filter&&c.dataset.cat!==filter);});
+  });});
+})();
+</script>
+</body>
+</html>
